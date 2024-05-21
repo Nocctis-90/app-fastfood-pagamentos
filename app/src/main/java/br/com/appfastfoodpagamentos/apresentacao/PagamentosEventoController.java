@@ -65,7 +65,9 @@ public class PagamentosEventoController {
                 case "Notification":
                     // Lógica para tratar mensagens recebidas
                     System.out.println("Received message: " + mensagemSNS.getMessage());
-                    solicitarPagamento.solicitarPagamento(mensagemSNS.getMessage());
+                    RequisicaoPagamento requisicaoPagamento = new RequisicaoPagamento("1","2","5");
+                    requisicaoPagamento.setStatus(mensagemSNS.getMessage());
+                    solicitarPagamento.solicitarPagamento(requisicaoPagamento);
                     break;
                 case "UnsubscribeConfirmation":
                     // Lógica para tratar confirmações de cancelamento de inscrição
