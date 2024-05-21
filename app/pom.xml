@@ -37,6 +37,16 @@
 			<artifactId>spring-boot-starter-jersey</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>io.awspring.cloud</groupId>
+			<artifactId>spring-cloud-aws-sns</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.awspring.cloud</groupId>
+			<artifactId>spring-cloud-aws-messaging</artifactId>
+			<version>2.4.4</version>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
@@ -69,16 +79,6 @@
 			<artifactId>cucumber-junit-platform-engine</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>io.awspring.cloud</groupId>
-			<artifactId>spring-cloud-aws-sns</artifactId>
-			<version>3.1.0</version>
-		</dependency>
-		<dependency>
-			<groupId>io.awspring.cloud</groupId>
-			<artifactId>spring-cloud-aws-messaging</artifactId>
-			<version>2.4.4</version>
-		</dependency>
-		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-java</artifactId>
 			<version>7.15.0</version>
@@ -96,7 +96,6 @@
 			<version>1.10.1</version>
 			<scope>test</scope>
 		</dependency>
-
 	</dependencies>
 
 	<build>
@@ -110,9 +109,6 @@
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
 						</exclude>
-						<exclude>**/com/appfastfoodpagamentos/apresentacao/requisicao/**</exclude>
-						<exclude>**/com/appfastfoodpagamentos/infraestrutura/mensagem/entrada/**</exclude>
-						<exclude>**/com/appfastfoodpagamentos/infraestrutura/mensagem/saida/**</exclude>
 					</excludes>
 				</configuration>
 			</plugin>
@@ -151,11 +147,6 @@
 						<exclude>**/*Runner*</exclude>
 					</excludes>
 				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.sonarsource.scanner.maven</groupId>
-				<artifactId>sonar-maven-plugin</artifactId>
-				<version>3.11.0.3922</version>
 			</plugin>
 		</plugins>
 	</build>
