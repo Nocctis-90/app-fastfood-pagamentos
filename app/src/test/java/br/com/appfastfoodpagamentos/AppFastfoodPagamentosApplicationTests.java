@@ -4,10 +4,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class AppFastfoodPagamentosApplicationTests {
+public class AppFastfoodPagamentosApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
-
+    @Test
+    public void contextLoads() {
+        // This test will pass if the application context loads successfully
+    }
 }
