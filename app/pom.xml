@@ -19,6 +19,7 @@
 		<sonar.host.url>https://sonarcloud.io/</sonar.host.url>
 		<sonar.organization>cezacai</sonar.organization>
 		<sonar.projectKey>cezacai_app-fastfood-pagamentos</sonar.projectKey>
+		<sonar.coverage.exclusions>**br.com.appfastfoodpagamentos.apresentacao.requisicao.MensagemSNS.java</sonar.coverage.exclusions>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
