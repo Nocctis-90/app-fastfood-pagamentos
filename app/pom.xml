@@ -18,7 +18,7 @@
 		<maven.compiler.release>17</maven.compiler.release>
 		<sonar.host.url>https://sonarcloud.io/</sonar.host.url>
 		<sonar.organization>cezacai</sonar.organization>
-		<sonar.projectKey>cezacai-fastfood-producao</sonar.projectKey>
+		<sonar.projectKey>app-fastfood-producao</sonar.projectKey>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
