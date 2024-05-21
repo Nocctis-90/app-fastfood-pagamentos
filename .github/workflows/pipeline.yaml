@@ -115,8 +115,8 @@ jobs:
 
       - name: DOCKER BUILD AND PUSH
         run: |
-          docker build -t caikemury/app-fastfood-pagamentos.jar:latest --build-arg trustStorePassword=a .
-          docker push caikemury/app-fastfood-pagamentos.jar:latest
+          docker build -t vitoravanco/app-fastfood-pagamentos.jar:latest --build-arg trustStorePassword=a .
+          docker push vitoravanco/app-fastfood-pagamentos.jar:latest
 
   deploy-eks:
     runs-on: ubuntu-latest
