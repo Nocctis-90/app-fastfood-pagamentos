@@ -1,34 +1,51 @@
 package br.com.appfastfoodpagamentos.apresentacao.requisicao;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Getter;
-import lombok.Setter;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
-@Getter
-@Setter
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public class RequisicaoPagamento {
-    @JsonProperty("status")
-    private String status;
+import org.junit.jupiter.api.Test;
 
-    @JsonProperty("meio_pagamento")
-    private String meioPagamento;
+public class RequisicaoPagamentoTest {
 
-    @JsonProperty("id_meio_pagamento")
-    private String idMeioPagamento;
+    @Test
+    public void testConstructorWithPaymentDetails() {
+        // Given
+        String meioPagamento = "Cartao";
+        String idMeioPagamento = "12345";
+        String valor = "100.00";
 
-    @JsonProperty("valor")
-    private String valor;
+        // When
+        RequisicaoPagamento requisicao = new RequisicaoPagamento(meioPagamento, idMeioPagamento, valor);
 
-    public RequisicaoPagamento(String meioPagamento, String idMeioPagamento, String valor){
-        this.status = "PENDENTE";
-        this.meioPagamento =  meioPagamento;
-        this.idMeioPagamento = idMeioPagamento;
-        this.valor = valor;
+        // Then
+        assertEquals("PENDENTE", requisicao.getStatus());
+        assertEquals(meioPagamento, requisicao.getMeioPagamento());
+        assertEquals(idMeioPagamento, requisicao.getIdMeioPagamento());
+        assertEquals(valor, requisicao.getValor());
+        assertNull(requisicao.getIdMeioPagamento());
     }
 
-    public RequisicaoPagamento(Boolean status){
-       this.status = status ? "APROVADO" : "REPROVADO";
+    @Test
+    public void testConstructorWithStatusApproved() {
+        // When
+        RequisicaoPagamento requisicao = new RequisicaoPagamento(true);
+
+        // Then
+        assertEquals("APROVADO", requisicao.getStatus());
+        assertNull(requisicao.getMeioPagamento());
+        assertNull(requisicao.getIdMeioPagamento());
+        assertNull(requisicao.getValor());
+    }
+
+    @Test
+    public void testConstructorWithStatusRejected() {
+        // When
+        RequisicaoPagamento requisicao = new RequisicaoPagamento(false);
+
+        // Then
+        assertEquals("REPROVADO", requisicao.getStatus());
+        assertNull(requisicao.getMeioPagamento());
+        assertNull(requisicao.getIdMeioPagamento());
+        assertNull(requisicao.getValor());
     }
 }
